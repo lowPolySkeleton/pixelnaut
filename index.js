@@ -6,7 +6,8 @@ selectSnd.volume = .01;
 
 
 const Actions = {
-    nextPlanet()  { 
+    nextPlanet()  {
+        Actions.hideTut()
         console.log("highlighting next planet...");
         if (selectedPlanet == null){
             selectedPlanet = $(".planet.one");
@@ -23,6 +24,7 @@ const Actions = {
         selectSnd.play();
     },
     prevPlanet()  { 
+        Actions.hideTut()
         console.log("highlighting previous planet..."); 
         if (selectedPlanet == null){
             selectedPlanet = $(".planet").last();
@@ -38,11 +40,20 @@ const Actions = {
         selectSnd.currentTime = 0;
         selectSnd.play();
     },
+    hideTut(){
+      $('.startingText').addClass('hide')
+      $('.helpText').removeClass('hide')
+    },
+    showTut(){
+      $('.startingText').removeClass('hide')
+      $('.helpText').addClass('hide')
+    }
   };
 
   const keyAction = {
     a: { keydown: Actions.prevPlanet },
     d: { keydown: Actions.nextPlanet },
+    h: { keydown: Actions.showTut },
   };
 
   const keyHandler = (ev) => {

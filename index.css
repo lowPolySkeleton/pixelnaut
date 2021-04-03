@@ -32,6 +32,38 @@ body {
   background: #000;
   font-family: "Altima";
   position: relative;
+  color: #fff;
+}
+.startingText{
+  height: 1080px;
+  width: 1920px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  font-size: 70px;
+  color: #fff;
+  z-index: 999;
+  opacity: 1;
+  transition: .3s ease;
+  pointer-events: none;
+}
+.helpText{
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 40px;
+  padding: 20px;
+  z-index: 999;
+}
+.startingText.hide, .helpText.hide{
+  opacity: 0;
+}
+.startingText > div{
+  width: 700px;
+  padding: 20px 40px;
+  background:rgba(0, 0, 0, 0.8)
 }
 .layer_1 {
   position: absolute;
