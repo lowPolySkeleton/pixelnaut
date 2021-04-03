@@ -47,6 +47,16 @@ const Actions = {
     showTut(){
       $('.startingText').removeClass('hide')
       $('.helpText').addClass('hide')
+    },
+    fullScreen(){
+      if(document.fullscreenElement !== null){
+        // we are in fullscreen so exit
+        document.exitFullscreen();
+      }
+      else{
+        document.getElementById('body').requestFullscreen()
+      }
+      
     }
   };
 
@@ -54,6 +64,7 @@ const Actions = {
     a: { keydown: Actions.prevPlanet },
     d: { keydown: Actions.nextPlanet },
     h: { keydown: Actions.showTut },
+    f: { keydown: Actions.fullScreen },
   };
 
   const keyHandler = (ev) => {
