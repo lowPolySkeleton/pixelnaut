@@ -1,0 +1,146 @@
+/* #region  FONT */
+@font-face {
+  font-family: "Altima";
+  src: url("Altima/Altima.eot");
+  src: url("Altima/Altima.eot?#iefix") format("embedded-opentype"),
+    url("Altima/Altima.woff") format("woff"),
+    url("Altima/Altima.ttf") format("truetype"),
+    url("Altima/Altima.svg#Altima") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: "Altima";
+    src: url("Altima/Altima.svg") format("svg");
+    font-weight: normal;
+    font-style: normal;
+  }
+}
+/* #endregion */
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 1080px;
+  width: 1920px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  background: #000;
+  font-family: "Altima";
+  position: relative;
+}
+.layer_1 {
+  position: absolute;
+  z-index: 1;
+}
+.layer_2 {
+  position: absolute;
+  z-index: 2;
+}
+.stars > img {
+  position: absolute;
+}
+/* #region  STAR PLACEMENT */
+.stars > img:nth-child(1) {
+  top: 100px;
+  left: 300px;
+}
+.stars > img:nth-child(2) {
+  top: 800px;
+  left: 800px;
+}
+.stars > img:nth-child(3) {
+  top: 500px;
+  left: 1700px;
+}
+.stars > img:nth-child(4) {
+  top: 80px;
+  left: 1200px;
+}
+.stars > img:nth-child(5) {
+  top: 540px;
+  left: 950px;
+}
+.stars > img:nth-child(6) {
+  top: 912px;
+  left: 1220px;
+}
+.stars > img:nth-child(7) {
+  top: 495px;
+  left: 740px;
+}
+.stars > img:nth-child(8) {
+  top: 1015px;
+  left: 1576px;
+}
+.stars > img:nth-child(9) {
+  top: 966px;
+  left: 82px;
+}
+/* #endregion */
+.planet {
+  position: absolute;
+  transition: 0.3s ease;
+}
+.planet.selected {
+  filter: drop-shadow(4px 5px 0px rgba(0, 0, 0, 0.8));
+  margin-top: -4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+}
+.planet.selected::before {
+  content: url("imgs/cursor.gif");
+  display: block;
+  width: 54px;
+  height: 54px;
+  position: absolute;
+  right: -40px;
+}
+.planet.four.planet.selected::before, .planet.five.planet.selected::before{
+  right: auto;
+  left: -40px;
+  transform: rotate(180deg);
+ }
+.planet.selected::after {
+  content: attr(data-name);
+  display: block;
+  height: 54px;
+  width: 100px;
+  white-space: nowrap;
+  line-height: 55px;
+  position: absolute;
+  right: -150px;
+  font-size: 50px;
+  color: #fff;
+}
+.planet.four.planet.selected::after, .planet.five.planet.selected::after{
+ text-align: right;
+ right: auto;
+ left: -150px
+}
+.planet.one {
+  top: 110px;
+  left: 150px;
+}
+.planet.two {
+  top: 450px;
+  left: 5px;
+}
+.planet.three {
+  top: 800px;
+  left: 550px;
+}
+.planet.four {
+  top: 540px;
+  left: 1136px;
+}
+.planet.five {
+  top: 10px;
+  left: 1653px;
+}
