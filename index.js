@@ -55,7 +55,22 @@ const Actions = {
       }
       else{
         document.getElementById('body').requestFullscreen()
+      }  
+    },
+    selectPlanet(){
+      let accoutrement = '<img class="parallaxStars" src="imgs/selection.gif" alt=""><div class="flash"></div><img class="panel" src="imgs/panel.gif" alt="">'
+
+      if(selectedPlanet && $('.layer_3').is(':empty')){
+        let planetClone = selectedPlanet.clone()
+        $('.layer_3').append(accoutrement)
+        $('.layer_3').append(planetClone)
+        
+
+        setTimeout(function(){
+          $('.layer_3').empty();
+        }, 10000)
       }
+
       
     }
   };
@@ -65,6 +80,7 @@ const Actions = {
     d: { keydown: Actions.nextPlanet },
     h: { keydown: Actions.showTut },
     f: { keydown: Actions.fullScreen },
+    Enter: { keydown: Actions.selectPlanet }
   };
 
   const keyHandler = (ev) => {

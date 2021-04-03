@@ -46,9 +46,9 @@ body {
   padding: 20px 40px;
   background:rgba(0, 0, 0, 0.8);
   position: absolute;
-  font-size: 70px;
+  font-size: 60px;
   color: #fff;
-  z-index: 999;
+  z-index: 3;
   opacity: 1;
   transition: .3s ease;
   pointer-events: none;
@@ -60,7 +60,7 @@ body {
   right: 0;
   font-size: 40px;
   padding: 20px;
-  z-index: 999;
+  z-index: 3;
 }
 .startingText.hide, .helpText.hide{
   opacity: 0;
@@ -72,6 +72,75 @@ body {
 .layer_2 {
   position: absolute;
   z-index: 2;
+}
+.layer_3 {
+  height: 1080px;
+  width: 1920px;
+  position: absolute;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.layer_3 > *{
+  position: absolute;
+}
+.layer_3 .planet{
+  transform: translateX(200%);
+  opacity: 0;
+  animation: planet 1s ease forwards;
+}
+@keyframes planet{
+  to{
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.parallaxStars{
+  height: 1080px;
+  width: 1920px;
+  opacity: 0;
+  animation: paraStars 0s ease 1s forwards;
+}
+@keyframes paraStars{
+  0%{
+    opacity: 0;
+  }
+  1%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 1;
+  }
+
+}
+.flash{
+  height: 1080px;
+  width: 1920px;
+  background-color: #fff;
+  opacity: 0;
+  animation: flash 3s ease 1s forwards;
+}
+@keyframes flash{
+  0%{
+    opacity: 0;
+  }
+  1%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+
+}
+.panel{
+  transform: translateX(-100%);
+  animation: panel 1s ease forwards;
+}
+@keyframes panel{
+  to{
+    transform: translateX(0)
+  }
 }
 .stars > img {
   position: absolute;
@@ -114,11 +183,11 @@ body {
   left: 82px;
 }
 /* #endregion */
-.planet {
+.layer_2 .planet {
   position: absolute;
   transition: 0.3s ease;
 }
-.planet.selected {
+.layer_2 .planet.selected {
   filter: drop-shadow(4px 5px 0px rgba(0, 0, 0, 0.8));
   margin-top: -4px;
   display: flex;
@@ -126,7 +195,7 @@ body {
   justify-content: center;
   position: absolute;
 }
-.planet.selected::before {
+.layer_2 .planet.selected::before {
   content: url("imgs/cursor.gif");
   display: block;
   width: 54px;
@@ -134,12 +203,12 @@ body {
   position: absolute;
   right: -40px;
 }
-.planet.four.planet.selected::before, .planet.five.planet.selected::before{
+.layer_2 .planet.four.planet.selected::before, .layer_2 .planet.five.planet.selected::before{
   right: auto;
   left: -40px;
   transform: rotate(180deg);
  }
-.planet.selected::after {
+ .layer_2 .planet.selected::after {
   content: attr(data-name);
   display: block;
   height: 54px;
@@ -151,28 +220,28 @@ body {
   font-size: 50px;
   color: #fff;
 }
-.planet.four.planet.selected::after, .planet.five.planet.selected::after{
+.layer_2 .planet.four.planet.selected::after, .layer_2 .planet.five.planet.selected::after{
  text-align: right;
  right: auto;
  left: -150px
 }
-.planet.one {
+.layer_2 .planet.one {
   top: 110px;
   left: 150px;
 }
-.planet.two {
+.layer_2 .planet.two {
   top: 450px;
   left: 5px;
 }
-.planet.three {
+.layer_2 .planet.three {
   top: 800px;
   left: 550px;
 }
-.planet.four {
+.layer_2 .planet.four {
   top: 540px;
   left: 1136px;
 }
-.planet.five {
+.layer_2 .planet.five {
   top: 10px;
   left: 1653px;
 }
