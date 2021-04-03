@@ -9,31 +9,34 @@
 	</head>
 
 	<body id="body">
-		<div class="layer_1">
-			<img src="imgs/starsBG.gif" alt="">
-			<div class="stars"></div>
-		</div>
+		<section id="game">
+			<div class="layer_1">
+				<img src="imgs/starsBG.gif" alt="">
+				<div class="stars"></div>
+			</div>
+			
+			<div class="layer_2">
+				<div class="planets">
+					<div class="planet one" data-name="rivoire"><img  src="imgs/pyramidPlanet.gif" alt=""></div>
+					<div class="planet two" data-name="agrias"><img  src="imgs/cloudPlanet.gif" alt=""></div>
+					<div class="planet three" data-name="vormav"><img src="imgs/namekPlanet.gif" alt=""></div>
+					<div class="planet four" data-name="gafgarion"><img src="imgs/goldPlanet.gif" alt=""></div>
+					<div class="planet five" data-name="wiegraf"><img src="imgs/asteriod.gif" alt=""></div>
+				</div>
+			</div>
+	
+			<div class="startingText">
+				<div>
+					Press the 'f' to toggle full screen.<br><br>
+					Use the 'd' key to select the next planet, or the 'a' key to select the previous planet.
+				</div>
+			</div>
+	
+			<div class="helpText hide">
+					Press 'h' for help
+			</div>
+		</section>
 		
-		<div class="layer_2">
-			<div class="planets">
-				<div class="planet one" data-name="rivoire"><img  src="imgs/pyramidPlanet.gif" alt=""></div>
-				<div class="planet two" data-name="agrias"><img  src="imgs/cloudPlanet.gif" alt=""></div>
-				<div class="planet three" data-name="vormav"><img src="imgs/namekPlanet.gif" alt=""></div>
-				<div class="planet four" data-name="gafgarion"><img src="imgs/goldPlanet.gif" alt=""></div>
-				<div class="planet five" data-name="wiegraf"><img src="imgs/asteriod.gif" alt=""></div>
-			</div>
-		</div>
-
-		<div class="startingText">
-			<div>
-				Press the 'f' to toggle full screen.<br><br>
-				Use the 'd' key to select the next planet, or the 'a' key to select the previous planet.
-			</div>
-		</div>
-
-		<div class="helpText hide">
-				Press 'h' for help
-		</div>
 	</body>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="index.js"></script>
