@@ -104,8 +104,24 @@ for (let i = 0; i < stars.length; ++i) {
   })(i);
 };
 
-document.onmousemove = function(e){
-    var x = e.pageX;
-    var y = e.pageY;
-    e.target.title = "X is "+x+" and Y is "+y;
-    };
+
+
+/* #region  SCALE GAME */
+function scaleGame(){
+  var viewportWidth = $(window).width();
+  var viewportHeight = $(window).height();
+  var resizeH = viewportHeight / 1080
+  var resizeW = viewportWidth / 1920
+  if(resizeH >  resizeW){
+    $('#game').css('transform', 'scale(' + resizeW + ')')
+  }else{
+    $('#game').css('transform', 'scale(' + resizeH + ')')
+  }
+}
+
+scaleGame()
+
+$(window).resize(function() {
+  scaleGame()
+});
+/* #endregion */
