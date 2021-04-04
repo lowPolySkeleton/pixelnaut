@@ -96,6 +96,9 @@ body {
   position: absolute;
 }
 .layer_3 .planet{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transform: translateX(200%);
   opacity: 0;
   animation: planet 1s ease forwards;
@@ -254,4 +257,16 @@ body {
 .layer_2 .planet.five {
   top: 10px;
   left: 1653px;
+}
+.layer_3 .planet.cloned::after {
+  content: attr(data-name);
+  display: block;
+  height: 100px;
+  width: 100px;
+  white-space: nowrap;
+  line-height: 100px;
+  position: absolute;
+  right: -150px;
+  font-size: 100px;
+  color: #fff;
 }

@@ -62,6 +62,7 @@ const Actions = {
 
       if(selectedPlanet && $('.layer_3').is(':empty')){
         let planetClone = selectedPlanet.clone()
+        planetClone.addClass('cloned')
         $('.layer_3').append(accoutrement)
         $('.layer_3').append(planetClone)
         
