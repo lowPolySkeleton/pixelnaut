@@ -61,15 +61,28 @@ const Actions = {
       let accoutrement = '<img class="parallaxStars" src="imgs/selection.gif" alt=""><div class="flash"></div><img class="panel" src="imgs/panel.gif" alt="">'
 
       if(selectedPlanet && $('.layer_3').is(':empty')){
+        pDur = selectedPlanet.attr('data-dur');
+        delayDur = parseInt(pDur) + 6000;
         let planetClone = selectedPlanet.clone()
         planetClone.addClass('cloned')
-        $('.layer_3').append(accoutrement)
-        $('.layer_3').append(planetClone)
+        let fadeInEl = '<div class="fadeIn"></div>';
+        let planetAni = '<img src="imgs/' + selectedPlanet.attr('data-name') + 'A.gif" alt=""/>'
+        let fadeOutEl = '<div class="fadeOut"></div>';
+        $('.layer_3').append(accoutrement, planetClone, fadeInEl)
+
+        setTimeout(function(){
+          $('.layer_3').append(planetAni, fadeOutEl)
+        }, 6000)
+
+        setTimeout(function(){
+          $('.layer_3').fadeOut(500)
+        }, delayDur)
         
 
         setTimeout(function(){
           $('.layer_3').empty();
-        }, 10000)
+          $('.layer_3').fadeIn(100)
+        }, delayDur + 1000)
       }
 
       

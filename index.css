@@ -37,12 +37,13 @@ body {
   align-items: center;
   justify-content: center;
 }
-#game{
+#game {
   height: 1080px;
   width: 1920px;
   position: absolute;
+  overflow: hidden;
 }
-.help{
+.help {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -50,20 +51,20 @@ body {
   align-items: center;
   justify-content: center;
 }
-.startingText{
+.startingText {
   width: 700px;
   padding: 20px 40px;
-  background:rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.8);
   position: absolute;
   font-size: 60px;
   color: #fff;
   z-index: 3;
   opacity: 1;
-  transition: .3s ease;
+  transition: 0.3s ease;
   pointer-events: none;
   margin: 0 auto;
 }
-.helpText{
+.helpText {
   text-align: right;
   position: absolute;
   bottom: 0;
@@ -72,93 +73,23 @@ body {
   padding: 20px;
   z-index: 3;
 }
-.startingText.hide, .helpText.hide{
+.startingText.hide,
+.helpText.hide {
   opacity: 0;
 }
 .layer_1 {
   position: absolute;
   z-index: 1;
 }
+/* #region  LAYER 2 */
 .layer_2 {
   position: absolute;
   z-index: 2;
 }
-.layer_3 {
-  height: 1080px;
-  width: 1920px;
-  position: absolute;
-  z-index: 4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.layer_3 > *{
-  position: absolute;
-}
-.layer_3 .planet{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform: translateX(200%);
-  opacity: 0;
-  animation: planet 1s ease forwards;
-}
-@keyframes planet{
-  to{
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-.parallaxStars{
-  height: 1080px;
-  width: 1920px;
-  opacity: 0;
-  animation: paraStars 0s ease 1s forwards;
-}
-@keyframes paraStars{
-  0%{
-    opacity: 0;
-  }
-  1%{
-    opacity: 1;
-  }
-  100%{
-    opacity: 1;
-  }
-
-}
-.flash{
-  height: 1080px;
-  width: 1920px;
-  background-color: #fff;
-  opacity: 0;
-  animation: flash 3s ease 1s forwards;
-}
-@keyframes flash{
-  0%{
-    opacity: 0;
-  }
-  1%{
-    opacity: 1;
-  }
-  100%{
-    opacity: 0;
-  }
-
-}
-.panel{
-  transform: translateX(-100%);
-  animation: panel 1s ease forwards;
-}
-@keyframes panel{
-  to{
-    transform: translateX(0)
-  }
-}
+/* #region  STAR PLACEMENT */
 .stars > img {
   position: absolute;
 }
-/* #region  STAR PLACEMENT */
 .stars > img:nth-child(1) {
   top: 100px;
   left: 300px;
@@ -216,12 +147,13 @@ body {
   position: absolute;
   right: -40px;
 }
-.layer_2 .planet.four.planet.selected::before, .layer_2 .planet.five.planet.selected::before{
+.layer_2 .planet.four.planet.selected::before,
+.layer_2 .planet.five.planet.selected::before {
   right: auto;
   left: -40px;
   transform: rotate(180deg);
- }
- .layer_2 .planet.selected::after {
+}
+.layer_2 .planet.selected::after {
   content: attr(data-name);
   display: block;
   height: 54px;
@@ -233,10 +165,11 @@ body {
   font-size: 50px;
   color: #fff;
 }
-.layer_2 .planet.four.planet.selected::after, .layer_2 .planet.five.planet.selected::after{
- text-align: right;
- right: auto;
- left: -150px
+.layer_2 .planet.four.planet.selected::after,
+.layer_2 .planet.five.planet.selected::after {
+  text-align: right;
+  right: auto;
+  left: -150px;
 }
 .layer_2 .planet.one {
   top: 110px;
@@ -258,15 +191,119 @@ body {
   top: 10px;
   left: 1653px;
 }
+/* #endregion */
+/* #region  LAYER 3 */
+.layer_3 {
+  height: 1080px;
+  width: 1920px;
+  position: absolute;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.layer_3 > * {
+  position: absolute;
+}
+.layer_3 .planet {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(200%);
+  opacity: 0;
+  animation: planet 1s ease forwards;
+}
+@keyframes planet {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.parallaxStars {
+  height: 1080px;
+  width: 1920px;
+  opacity: 0;
+  animation: paraStars 0s ease 1s forwards;
+}
+@keyframes paraStars {
+  0% {
+    opacity: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.flash {
+  height: 1080px;
+  width: 1920px;
+  background-color: #fff;
+  opacity: 0;
+  animation: flash 3s ease 1s forwards;
+}
+@keyframes flash {
+  0% {
+    opacity: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.panel {
+  transform: translateX(-100%);
+  animation: panel 1s ease forwards;
+}
+@keyframes panel {
+  to {
+    transform: translateX(0);
+  }
+}
+
 .layer_3 .planet.cloned::after {
   content: attr(data-name);
   display: block;
   height: 100px;
-  width: 100px;
+  width: 1px;
   white-space: nowrap;
   line-height: 100px;
   position: absolute;
-  right: -150px;
+  right: 0px;
   font-size: 100px;
   color: #fff;
 }
+.layer_3 .fadeIn {
+  height: 1080px;
+  width: 1920px;
+  background-color: #00000b;
+  opacity: 0;
+  animation: fadeIn 1s ease 5s forwards;
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+.layer_3 .fadeOut {
+  height: 1080px;
+  width: 1920px;
+  background-color: #00000b;
+  opacity: 1;
+  animation: fadeOut .3s ease forwards;
+}
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+.layer_3 .fadeOut {
+  height: 1080px;
+  width: 1920px;
+  background-color: #00000b;
+  opacity: 1;
+}
+/* #endregion */
