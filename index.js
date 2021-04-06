@@ -1,5 +1,6 @@
 /* #region  PLANET SELECT */
 let selectedPlanet;
+let counter = 0;
 
 let selectSnd = new Audio("snds/target.wav");
 selectSnd.volume = .1;
@@ -64,6 +65,7 @@ const Actions = {
       let accoutrement = '<img class="parallaxStars" src="imgs/selection.gif" alt=""><div class="flash"></div><img class="panel" src="imgs/panel.gif" alt="">'
 
       if(selectedPlanet && $('.layer_3').is(':empty')){
+        counter += 1;
         chooseSnd.play();
 
         pDur = selectedPlanet.attr('data-dur');
@@ -71,7 +73,7 @@ const Actions = {
         let planetClone = selectedPlanet.clone()
         planetClone.addClass('cloned')
         let fadeInEl = '<div class="fadeIn"></div>';
-        let planetAni = '<img src="imgs/' + selectedPlanet.attr('data-name') + 'A.gif" alt=""/>'
+        let planetAni = '<img src="imgs/' + selectedPlanet.attr('data-name') + 'A.gif?v=' + counter + '" alt=""/>'
         let fadeOutEl = '<div class="fadeOut"></div>';
         $('.layer_3').append(accoutrement, planetClone, fadeInEl)
 
