@@ -1,8 +1,11 @@
 /* #region  PLANET SELECT */
 let selectedPlanet;
 
-let selectSnd = new Audio("snds/9.mp3");
-selectSnd.volume = .01;
+let selectSnd = new Audio("snds/target.wav");
+selectSnd.volume = .1;
+
+let chooseSnd = new Audio("snds/select.wav");
+chooseSnd.volume = .1;
 
 
 const Actions = {
@@ -61,6 +64,8 @@ const Actions = {
       let accoutrement = '<img class="parallaxStars" src="imgs/selection.gif" alt=""><div class="flash"></div><img class="panel" src="imgs/panel.gif" alt="">'
 
       if(selectedPlanet && $('.layer_3').is(':empty')){
+        chooseSnd.play();
+
         pDur = selectedPlanet.attr('data-dur');
         delayDur = parseInt(pDur) + 6000;
         let planetClone = selectedPlanet.clone()
