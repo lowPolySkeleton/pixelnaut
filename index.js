@@ -52,6 +52,13 @@ const Actions = {
       $('.startingText').removeClass('hide')
       $('.helpText').addClass('hide')
     },
+    toggleInfo(){
+      if($('.info').hasClass('hide')){
+        $('.info').removeClass('hide')
+      }else{
+        $('.info').addClass('hide')
+      }
+    },
     fullScreen(){
       if(document.fullscreenElement !== null){
         // we are in fullscreen so exit
@@ -64,7 +71,7 @@ const Actions = {
     selectPlanet(){
       let accoutrement = '<img class="parallaxStars" src="imgs/selection.gif" alt=""><div class="flash"></div><img class="panel" src="imgs/panel.gif" alt="">'
 
-      if(selectedPlanet && $('.layer_3').is(':empty')){
+      if(selectedPlanet && $('.layer_3').is(':empty') && $('.startingText').hasClass('hide') && $('.info').hasClass('hide')){
         counter += 1;
         chooseSnd.play();
 
@@ -101,7 +108,8 @@ const Actions = {
     d: { keydown: Actions.nextPlanet },
     h: { keydown: Actions.showTut },
     f: { keydown: Actions.fullScreen },
-    Enter: { keydown: Actions.selectPlanet }
+    Enter: { keydown: Actions.selectPlanet },
+    i: { keydown: Actions.toggleInfo }
   };
 
   const keyHandler = (ev) => {
