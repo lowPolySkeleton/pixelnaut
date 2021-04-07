@@ -123,6 +123,22 @@ const Actions = {
   });
 /* #endregion */
 
+$('.planet').on('click', function(){
+  $this = $(this)
+  Actions.hideTut()
+  if (selectedPlanet == null){
+    selectedPlanet = $this;
+    selectedPlanet.addClass("selected")
+    Actions.selectPlanet()
+  }
+  else{
+    selectedPlanet.removeClass('selected');
+    selectedPlanet = $this;
+    selectedPlanet.addClass("selected")
+    Actions.selectPlanet()
+  }
+})
+
 let stars = ['<img src="imgs/star1.gif?v=1"/>','<img src="imgs/star1.gif?v=2"/>','<img src="imgs/star1.gif?v=3"/>','<img src="imgs/star1.gif?v=4"/>','<img src="imgs/star2.gif?v=5"/>','<img src="imgs/star2.gif?v=6"/>','<img src="imgs/star2.gif?v=7"/>','<img src="imgs/star2.gif?v=8"/>','<img src="imgs/star3.gif?v=9"/>'];
 
 for (let i = 0; i < stars.length; ++i) {
