@@ -50,7 +50,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  pointer-events: none;
 }
 .info {
   position: absolute;
@@ -64,13 +63,16 @@ body {
   transition: 0.3s ease;
   z-index: 10;
   font-size: 50px;
+}
+.info.hide{
   pointer-events: none;
 }
 .info div{
   width: 700px;
 }
-.info a, .info a:visited{
+ a, a:visited{
   color: #4287f5;
+  cursor: pointer;
 }
 .info.hide{
   opacity: 0;
@@ -87,6 +89,7 @@ body {
   transition: 0.3s ease;
   pointer-events: none;
   margin: 0 auto;
+  pointer-events: none;
 }
 .helpText {
   text-align: right;

@@ -139,6 +139,27 @@ $('.planet').on('click', function(){
   }
 })
 
+$('.infoToggle').on('click', function(){
+  Actions.toggleInfo()
+})
+
+$('.helpToggle').on('click', function(){
+  if($('.startingText').hasClass('hide')){
+    Actions.showTut()
+  }else{
+    Actions.hideTut()
+  }
+})
+
+
+
+$('body').on('click', function(e){
+  if(!$(e.target).is('.helpToggle')) {
+    Actions.hideTut()
+  }
+  
+})
+
 let stars = ['<img src="imgs/star1.gif?v=1"/>','<img src="imgs/star1.gif?v=2"/>','<img src="imgs/star1.gif?v=3"/>','<img src="imgs/star1.gif?v=4"/>','<img src="imgs/star2.gif?v=5"/>','<img src="imgs/star2.gif?v=6"/>','<img src="imgs/star2.gif?v=7"/>','<img src="imgs/star2.gif?v=8"/>','<img src="imgs/star3.gif?v=9"/>'];
 
 for (let i = 0; i < stars.length; ++i) {
