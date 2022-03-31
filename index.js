@@ -139,6 +139,20 @@ $('.planet').on('click', function(){
   }
 })
 
+$('.planet').hover(function(){
+  $this = $(this)
+  Actions.hideTut()
+  if (selectedPlanet == null){
+    selectedPlanet = $this;
+    selectedPlanet.addClass("selected")
+  }
+  else{
+    selectedPlanet.removeClass('selected');
+    selectedPlanet = $this;
+    selectedPlanet.addClass("selected")
+  }
+})
+
 $('.infoToggle').on('click', function(){
   Actions.toggleInfo()
 })
