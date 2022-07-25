@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2022 Road Trip to Canada</title>
+    <style>
+        body{
+            background: #222;
+            color: #fff;
+            font-family: sans-serif;
+        }
+        a{
+            color: #fff;
+            text-transform: uppercase;
+        }
+        #grid{
+            line-height: calc(100% + 12px);
+   
+            -webkit-column-count: 3;
+            -webkit-column-gap:   10px;
+            -moz-column-count:    3;
+            -moz-column-gap:      10px;
+            column-count:         3;
+            column-gap:           10px;
+        }
+        #grid img{
+            width: 100% !important;
+            height: auto !important;
+        }
+        @media (max-width: 1500px) {
+        #grid {
+        -moz-column-count:    2;
+        -webkit-column-count: 2;
+        column-count:         2;
+        }
+        }
+        
+        @media (max-width: 1000px) {
+        #grid {
+        -moz-column-count:    1;
+        -webkit-column-count: 1;
+        column-count:         1;
+        }
+        }
+        
+    </style>
+</head>
+<body>
+    <p style="text-align: center;"><a href="https://drive.google.com/file/d/1W1FoJB2MYjDPOp3ltuvAzFb0VGreP1A0/view?usp=sharing">Download ZIP of this trip!</a></p>
+    <section id="grid">
+
+    </section>
+    <script>
+        function drawImg(imgName){
+            var fragment = document.createDocumentFragment(),
+                img = document.createElement('img');
+
+            img.setAttribute("src", "images/" + imgName + ".jpg");
+            fragment.appendChild(img);
+            
+
+            document.getElementById('grid').appendChild(fragment);
+        }
+        
+
+        for (let index = 0; index < 313; index++) {
+            drawImg("i ("+ (index + 1) +")");
+        }
+    </script>
+</body>
+</html>
