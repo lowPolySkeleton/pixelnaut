@@ -102,7 +102,7 @@
 					values += (array[i]);
 				}
 				
-				if (values >= 4000){
+				if (values >= 7000){
 					var scale = values / 100000
 					console.log("scale("+ (Number(scale) + 1) +")")
 					canvasContext.classList.add("move");
@@ -140,32 +140,7 @@
 					runSpeechRecognition()
                 }
               
-                // This runs when the speech recognition service returns result
-                recognition.onresult = function(event) {
-                    var transcript = event.results[0][0].transcript;
-                    var confidence = event.results[0][0].confidence;
-
-					console.log(transcript)
-					if(transcript != "what the fuck"){
-						canvasContext.classList.add("wtf")
-						setTimeout(() => {
-							canvasContext.classList.remove("wtf")
-						}, 1000);
-					}
-					if(transcript != "hello"){
-						canvasContext.classList.add("hello")
-						setTimeout(() => {
-							canvasContext.classList.remove("hello")
-						}, 1000);
-					}
-					if(transcript != "pog"){
-						canvasContext.classList.add("pog")
-						setTimeout(() => {
-							canvasContext.classList.remove("pog")
-						}, 1000);
-					}
-
-                };
+               
               
                  // start recognition
                  recognition.start();
