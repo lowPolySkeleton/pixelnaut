@@ -17,13 +17,15 @@
 			overflow: hidden;
 		}
 		#canvas{
-			background-image: url("images/liminalace.png?v=2");
+			background-image: url("images/CG-static.gif");
 			background-position: center bottom;
-			background-size: 800px;
+			background-size: 1600px;
 			background-repeat: no-repeat;
 			transition: .3s;
 			width: 100%;
 			height: 100%;
+			transform-origin: center bottom;
+			image-rendering:optimizeQuality;
 		}
 		#shake{
 			width: 100%;
@@ -31,10 +33,7 @@
 			transform-origin: bottom center;
 		}
 		.move{
-			background-image: url("images/liminalace.gif?v=2") !important;
-		}
-		.wtf{
-			background-image: url("images/liminalacewtf.gif") !important;
+			background-image: url("images/CG-talk.gif") !important;
 		}
 		.shake{
 			animation: shake 0.5s infinite;
