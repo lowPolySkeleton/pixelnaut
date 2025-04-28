@@ -35,6 +35,9 @@
 		.move{
 			background-image: url("images/CG-talk.gif") !important;
 		}
+		.move2{
+			background-image: url("images/CG-scream.gif") !important;
+		}
 		.shake{
 			animation: shake 0.5s infinite;
 		}
@@ -101,14 +104,18 @@
 					values += (array[i]);
 				}
 				
-				if (values >= 7000){
+				if (values >= 9000){
 					var scale = values / 100000
-					console.log("scale("+ (Number(scale) + 1) +")")
+					console.log(values)
 					canvasContext.classList.add("move");
-					if((Number(scale) + 1) > 1.3){
+					if(values >= 30000){
 						shakeContext.classList.add("shake");
+						canvasContext.classList.remove("move");
+						canvasContext.classList.add("move2");
 					}else{
 						shakeContext.classList.remove("shake");
+						canvasContext.classList.remove("move2");
+						canvasContext.classList.add("move");
 					}
 					canvasContext.style.transform = "scale("+ (Number(scale) + 1) +")"
 				}else{
