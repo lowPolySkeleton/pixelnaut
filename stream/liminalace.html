@@ -98,7 +98,8 @@
 			analyser.connect(javascriptNode);
 			javascriptNode.connect(audioContext.destination);
 
-			canvasContext = document.getElementById("jaw")
+			canvasContext = document.getElementById("canvas")
+			jawContext = document.getElementById("jaw")
 			shakeContext = document.getElementById("shake")
 
 			javascriptNode.onaudioprocess = function() {
@@ -116,7 +117,7 @@
 				if (values >= 9000){
 					var scale = values / 100000
 					console.log(values)
-					canvasContext.classList.add("move");
+					jawContext.classList.add("move");
 					if(values >= 35000){
 						shakeContext.classList.add("shake");
 					}else{
@@ -124,7 +125,7 @@
 					}
 					canvasContext.style.transform = "scale("+ (Number(scale) + 1) +")"
 				}else{
-					canvasContext.classList.remove("move");
+					jawContext.classList.remove("move");
 					
 					canvasContext.style.transform = "scale(1)"
 				}
